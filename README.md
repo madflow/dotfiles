@@ -8,14 +8,13 @@ Oh my dot!
 
 3. Set up Vundle:
 
-   `git clone https://github.com/VundleVim/Vundle.vim.git
-   ~/.vim/bundle/Vundle.vim`
-
-4. Set up links
+   `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 
    `ln -s ~/Projects/dotfiles/vimrc ~/.vimrc`
 
    `vim +PluginInstall +qall`
+
+4. Set up links
 
    `ln -s ~/Projects/dotfiles/zshrc ~/.zshrc`
 
