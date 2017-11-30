@@ -1,0 +1,1 @@
+source ~/.tmuxinator/tmuxinator.zsh

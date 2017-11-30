@@ -1,0 +1,1 @@
+source /usr/sbin/virtualenvwrapper.sh
