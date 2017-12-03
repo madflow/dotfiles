@@ -13,3 +13,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Composer
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+
+# Ruby
+export PATH="$HOME/.gem/ruby/2.4.0/bin:$PATH"
+
