@@ -9,6 +9,7 @@ set encoding=utf-8
 set pastetoggle=<F2>
 set nocompatible              " be iMproved, required
 filetype off                  " required
+
 colorscheme monokai
 
 " set the runtime path to include Vundle and initialize
@@ -34,3 +35,10 @@ Plugin 'ervandew/supertab'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+
+if &term =~ '256color'
+    " disable Background Color Erase (BCE) so that color schemes
+    " render properly when inside 256-color tmux and GNU screen.
+    " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+    set t_ut=
+endif
