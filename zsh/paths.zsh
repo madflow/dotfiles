@@ -16,4 +16,8 @@ export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 
 # Ruby
 export PATH="$HOME/.gem/ruby/2.4.0/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
 
+# Go
+export GOPATH="$HOME/.go"
+export PATH="$GOPATH/bin:$PATH" 
