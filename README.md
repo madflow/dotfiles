@@ -17,8 +17,8 @@ Oh my dot!
 
 4. Setup Tmux
 
-   `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm` Press
-   prefix + I (capital I, as in Install) to fetch the plugin.
+   `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm` 
+   Press ```prefix + I``` (capital I, as in Install) to fetch the plugin.
 
 5. Set up links
 
