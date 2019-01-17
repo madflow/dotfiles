@@ -30,6 +30,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'ervandew/supertab'
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'rust-lang/rust.vim' 
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
