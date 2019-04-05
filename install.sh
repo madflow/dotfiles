@@ -2,6 +2,14 @@
 
 set -ex
 
+# Clone the repo if needed
+if [ -d ~/.dotfiles ]
+then
+    echo ".dotfiles exists"
+else
+    git clone git@github.com:madflow/dotfiles.git ~/.dotfiles
+fi
+
 # Vim
 
 if [ -d ~/.vim/bundle/Vundle.vim ]
