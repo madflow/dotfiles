@@ -2,7 +2,7 @@ Oh my dot!
 
 # Install
 
-1. Clone this repo, flo, to ~/Projects/dotfiles
+1. Clone this repo, flo, to ~/.dotfiles
 
 2. Install zsh, oh-my-zsh, tmux, tmuxinator, git whatever
 
@@ -11,7 +11,7 @@ Oh my dot!
    `git clone https://github.com/VundleVim/Vundle.vim.git
    ~/.vim/bundle/Vundle.vim`
 
-   `ln -s ~/Projects/dotfiles/vimrc ~/.vimrc`
+   `ln -s ~/.dotfiles/vimrc ~/.vimrc`
 
    `vim +PluginInstall +qall`
 
@@ -22,11 +22,11 @@ Oh my dot!
 
 5. Set up links
 
-   `ln -s ~/Projects/dotfiles/zshrc ~/.zshrc`
+   `ln -s ~/.dotfiles/zshrc ~/.zshrc`
 
-   `ln -s ~/Projects/dotfiles/vim/colors ~/.vim/colors`
+   `ln -s ~/.dotfiles/vim/colors ~/.vim/colors`
 
-   `ln -s ~/Projects/dotfiles/tmux.conf ~/.tmux.conf`
+   `ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf`
 
 6. Git
 
