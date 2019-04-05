@@ -47,7 +47,7 @@ ZSH_CUSTOM=~/.dotfiles/zsh
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git composer docker docker-compose zsh_reload yarn virtualenvwrapper)
+plugins=(git composer docker docker-compose zsh_reload)
 
 # User configuration
 
