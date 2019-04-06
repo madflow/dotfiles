@@ -1,6 +1,23 @@
 #!/bin/bash
 
-set -ex
+set -e
+
+function prompt_install() {
+if ! [ -x "$(command -v ${1})" ]; then
+    echo "${1} cannot be found. Install it with:" >&2
+    if [ -x "$(command -v pacman)" ]; then
+        echo "pacman -S ${1}" >&2
+    fi
+    if [ -x "$(command -v apt-get)" ]; then
+        echo "apt-get install ${1}" >&2
+    fi
+    exit 1
+fi
+}
+
+prompt_install 'git'
+prompt_install 'vim'
+prompt_install 'tmux'
 
 # Clone the repo if needed
 if [ -d ~/.dotfiles ]
