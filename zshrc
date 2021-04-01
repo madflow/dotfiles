@@ -89,4 +89,3 @@ setopt interactivecomments
 
 # Zsh has a spelling corrector
 setopt CORRECT
-

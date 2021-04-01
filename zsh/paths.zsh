@@ -1,7 +1,3 @@
-# Heroku
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="/opt/apache-maven/bin:$PATH"
-
 # YARN
 if (( $+commands[yarn] ))
 then
