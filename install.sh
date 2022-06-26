@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# apk add git curl wget bat mcfly zsh vim openssh-client go httpie tmux
-
 set -e
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
@@ -38,14 +36,8 @@ if ! [ -x "$(command -v ${1})" ]; then
 fi
 }
 
-prompt_install 'bat'
 prompt_install 'curl'
 prompt_install 'git'
-prompt_install 'go' 'https://go.dev/dl/'
-prompt_install 'http' 'https://httpie.io/docs/cli/installation' 'httpie'
-prompt_install 'mcfly'
-#prompt_install 'nvm' 'https://github.com/nvm-sh/nvm'
-prompt_install 'ssh' 'https://www.ssh.com/ssh/' 'openssh-client'
 prompt_install 'tmux'
 prompt_install 'vim'
 prompt_install 'wget'
@@ -57,7 +49,7 @@ then
 else
     echo "Installing oh my zsh. Restart this script after oh my zsh is installed. Sleeping for 5 seconds..."
     sleep 5s
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
 # Clone the repo if needed
