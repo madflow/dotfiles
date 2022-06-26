@@ -1,36 +1,71 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# apk add git curl wget bat mcfly zsh vim openssh-client go httpie tmux
 
 set -e
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 RUN_TIME=`date +"%Y-%m-%d-%H-%M-%S"`
+# POSIX: https://pubs.opengroup.org/onlinepubs/009696899/basedefs/xbd_chap08.html#tag_08_03
+HOME="${HOME:-$(getent passwd $USER 2>/dev/null | cut -d: -f6)}"
+# macOS does not have getent, but this works even if $HOME is unset
+HOME="${HOME:-$(eval echo ~$USER)}"
+OMYZSH="${HOME}/.oh-my-zsh"
 
 function prompt_install() {
+
 if ! [ -x "$(command -v ${1})" ]; then
-    echo "${1} cannot be found. Install it with:" >&2
+    inst=${3-$1}
+    echo "${1} cannot be found. Try installing it with:" >&2
     if [ -x "$(command -v pacman)" ]; then
-        echo "pacman -S ${1}" >&2
+        echo "pacman -S ${inst}" >&2
     fi
     if [ -x "$(command -v apt-get)" ]; then
-        echo "apt-get install ${1}" >&2
+        echo "apt-get install ${inst}" >&2
     fi
     if [ -x "$(command -v brew)" ]; then
-        echo "brew install ${1}" >&2
+        echo "brew install ${inst}" >&2
+    fi
+        if [ -x "$(command -v apk)" ]; then
+        echo "apk add ${inst}" >&2
+    fi
+    if [ -z ${2+x} ]; then
+       echo "No installation instructions provided" >&2
+    else
+        echo "Installation instructions can be found at: ${2}"  >&2
     fi
     exit 1
 fi
 }
 
+prompt_install 'bat'
+prompt_install 'curl'
 prompt_install 'git'
-prompt_install 'vim'
+prompt_install 'go' 'https://go.dev/dl/'
+prompt_install 'http' 'https://httpie.io/docs/cli/installation' 'httpie'
+prompt_install 'mcfly'
+#prompt_install 'nvm' 'https://github.com/nvm-sh/nvm'
+prompt_install 'ssh' 'https://www.ssh.com/ssh/' 'openssh-client'
 prompt_install 'tmux'
+prompt_install 'vim'
+prompt_install 'wget'
+prompt_install 'zsh'
+
+if [[ -d "$OMYZSH" ]]
+then
+    echo "oh my zsh seems to already installed."
+else
+    echo "Installing oh my zsh. Restart this script after oh my zsh is installed. Sleeping for 5 seconds..."
+    sleep 5s
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 # Clone the repo if needed
 if [ -d ~/.dotfiles ]
 then
     echo ".dotfiles exists"
 else
-    git clone git@github.com:madflow/dotfiles.git ~/.dotfiles
+    git clone https://github.com/madflow/dotfiles.git ~/.dotfiles
 fi
 
 # Vim
@@ -56,6 +91,7 @@ then
 else
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+ln -sf $SCRIPT_DIR/tmux.conf ~/.tmux.conf
 # Install and update TPM plugins
 ~/.tmux/plugins/tpm/bin/install_plugins
 ~/.tmux/plugins/tpm/bin/update_plugins all
@@ -72,13 +108,15 @@ else
         echo "Git config already exists. Backing up"
         mv ~/.gitconfig ~/.gitconfig.$RUN_TIME
     else
-        echo "Git config does not already exist."
+        echo "Git config does not already exist. Creating it."
     fi
 fi
-
-
-# Symbolic links
-ln -sf $SCRIPT_DIR/zshrc ~/.zshrc
-ln -sf $SCRIPT_DIR/tmux.conf ~/.tmux.conf
 ln -sf $SCRIPT_DIR/gitconfig ~/.gitconfig
+
+
+# ZSH
+ln -sf $SCRIPT_DIR/zshrc ~/.zshrc
+
+# Local config
+touch $SCRIPT_DIR/zsh/zlocal.zsh
 

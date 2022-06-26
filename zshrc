@@ -47,7 +47,7 @@ ZSH_CUSTOM=~/.dotfiles/zsh
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git composer docker docker-compose zsh_reload)
+plugins=(ssh-agent docker httpie kubectl git git-extras macos vscode yarn)
 
 # User configuration
 
@@ -66,7 +66,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 fi
 
 # Compilation flags
-export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -89,3 +89,9 @@ setopt interactivecomments
 
 # Zsh has a spelling corrector
 setopt CORRECT
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+

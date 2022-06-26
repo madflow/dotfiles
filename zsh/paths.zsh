@@ -7,12 +7,11 @@ fi
 # Local
 export PATH="$HOME/.local/bin:$PATH"
 
+# Homebrew
+export PATH="/opt/homebrew/bin:$PATH"
+
 # Composer
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
-
-# Ruby
-export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
-export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
 
 # Go
 export GOPATH="$HOME/.go"
