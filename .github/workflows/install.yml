@@ -29,6 +29,6 @@ jobs:
       - name: Install software
         run: ./soft.sh
       # Runs a set of commands using the runners shell
-      - name: Run installation scripz
+      - name: Run installation script
         run: |
           ./install.sh

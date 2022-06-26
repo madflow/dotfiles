@@ -7,7 +7,7 @@ set -e
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     echo "Linux host detected"
     sudo apt-get update
-    sudo apt-get install -y bat curl bat fd-find git golang httpie openssh-client ripgrep tmux vim wget tmux zsh
+    sudo apt-get install -y bat curl bat fd-find git golang httpie openssh-client tmux vim wget tmux zsh
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 elif [[ "$OSTYPE" == "linux-musl"* ]]; then
