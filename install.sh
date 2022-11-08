@@ -43,6 +43,7 @@ prompt_install 'vim'
 prompt_install 'wget'
 prompt_install 'zsh'
 
+
 if [[ -d "$OMYZSH" ]]
 then
     echo "oh my zsh seems to already installed."
@@ -73,6 +74,8 @@ fi
 ln -sf ~/.dotfiles/vimrc ~/.vimrc
 ln -sf ~/.dotfiles/vim/colors ~/.vim/colors
 vim +PluginInstall +qall
+
+# Neovim
 
 
 # Tmux

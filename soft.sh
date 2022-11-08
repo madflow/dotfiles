@@ -19,7 +19,7 @@ elif [[ "$OSTYPE" == "linux-musl"* ]]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     echo "Macos host detected"
-    brew install bat curl bat fd httpie mcfly ripgrep tmux vim wget tmux zsh
+    brew install bat curl bat fd httpie fzf ripgrep tmux vim wget tmux zsh
     brew tap homebrew/cask-fonts
     brew install --cask font-fira-code
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash

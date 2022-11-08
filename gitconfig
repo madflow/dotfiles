@@ -23,3 +23,6 @@
   path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra
+[user]
+	name = Florian Reiss
+	email = florian.reiss@pro-volution.de
