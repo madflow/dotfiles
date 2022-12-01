@@ -1,5 +1,5 @@
 [init]
-  defaultBranch = master
+  defaultBranch = main
 [push]
   default = current
 [color]
@@ -14,7 +14,7 @@
   st = status
 [core]
   autocrlf = input
-  editor = vim
+	editor = nvim
 [merge]
   ff = only
 [fetch]

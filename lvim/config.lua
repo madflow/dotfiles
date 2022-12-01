@@ -194,8 +194,8 @@ linters.setup {
 -- Additional Plugins
 lvim.plugins = {
   { "lunarvim/colorschemes" },
-  --{ "phpactor/phpactor" },
-  -- { "phpactor/ncm2-phpactor" },
+  { "phpactor/phpactor" },
+  { "phpactor/ncm2-phpactor" },
   { "sainnhe/sonokai" },
   { "editorconfig/editorconfig-vim" },
   { "lumiliet/vim-twig" },

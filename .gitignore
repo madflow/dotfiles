@@ -1,2 +1,6 @@
 zsh/zlocal.zsh
 lvim/plugin/packer_compiled.lua
+nvim/test.js
+nvim/test.php
+nvim/plugin
+.php-cs-fixer.cache
