@@ -32,11 +32,9 @@ return packer.startup(function(use)
 
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
-  use("folke/tokyonight.nvim") -- preferred colorscheme
-
-  use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
-
-  use("szw/vim-maximizer") -- maximizes and restores current window
+  -- colorschemes
+  use("folke/tokyonight.nvim")
+  use("EdenEast/nightfox.nvim")
 
   -- essential plugins
   use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
@@ -62,6 +60,8 @@ return packer.startup(function(use)
   use("hrsh7th/nvim-cmp") -- completion plugin
   use("hrsh7th/cmp-buffer") -- source for text in buffer
   use("hrsh7th/cmp-path") -- source for file system paths
+  use("hrsh7th/cmp-nvim-lsp")
+  use("hrsh7th/cmp-nvim-lua")
 
   -- snippets
   use("L3MON4D3/LuaSnip") -- snippet engine
@@ -79,6 +79,9 @@ return packer.startup(function(use)
   use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
+  -- useful status updates for lsp
+  use("j-hui/fidget.nvim")
+
   -- formatting & linting
   use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
   use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
@@ -92,24 +95,37 @@ return packer.startup(function(use)
     end,
   })
 
+  use({ -- additional text objects via treesitter
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    after = "nvim-treesitter",
+  })
+
   -- auto closing
   use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
   use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
+  -- heuristically set buffer options
+  use("tpope/vim-sleuth")
+
   -- git integration
   use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
+  use("kdheepak/lazygit.nvim")
+  use("tpope/vim-fugitive")
+  use("tpope/vim-rhubarb")
 
-  -- Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
+  -- neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua api.
   use("folke/neodev.nvim")
 
+  -- whichkey is a lua plugin for neovim that displays a popup with possible key bindings of the command you started typing.
   use("folke/which-key.nvim")
 
+  -- alpha is a fast and fully programmable greeter for neovim.
   use({
     "goolord/alpha-nvim",
     requires = { "kyazdani42/nvim-web-devicons" },
   })
 
-  -- Debugging
+  -- debugging
   use("mfussenegger/nvim-dap")
   use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
   use({
@@ -117,14 +133,27 @@ return packer.startup(function(use)
     tag = "*",
   })
 
-  use("ThePrimeagen/harpoon")
-
-  use("EdenEast/nightfox.nvim")
-
   -- use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
   use("romgrk/barbar.nvim")
+
+  -- PHP completion, refactoring, introspection tool and language server.
   use("phpactor/phpactor")
 
+  -- Seamless navigation between tmux panes and vim splits
+  use("christoomey/vim-tmux-navigator")
+
+  -- A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
+  use({
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      })
+    end,
+  })
   if packer_bootstrap then
     require("packer").sync()
   end

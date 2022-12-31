@@ -20,8 +20,6 @@ opt.smartcase = true -- if you include mixed case in your search, assumes you wa
 -- cursor line
 opt.cursorline = true -- highlight the current cursor line
 
--- appearance
-
 -- turn on termguicolors for nightfly colorscheme to work
 -- (have to use iterm2 or any other true color terminal)
 opt.termguicolors = true
@@ -39,3 +37,17 @@ opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
 opt.iskeyword:append("-") -- consider string-string as whole word
+
+opt.scrolloff = 8
+
+opt.swapfile = false
+opt.backup = false
+
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.undofile = true
+
+opt.breakindent = true
+
+-- Decrease update time
+-- vim.o.updatetime = 250
+-- vim.wo.signcolumn = "yes"
