@@ -12,28 +12,28 @@ OMYZSH="${HOME}/.oh-my-zsh"
 
 function prompt_install() {
 
-if ! [ -x "$(command -v ${1})" ]; then
-    inst=${3-$1}
-    echo "${1} cannot be found. Try installing it with:" >&2
-    if [ -x "$(command -v pacman)" ]; then
-        echo "pacman -S ${inst}" >&2
-    fi
-    if [ -x "$(command -v apt-get)" ]; then
-        echo "apt-get install ${inst}" >&2
-    fi
-    if [ -x "$(command -v brew)" ]; then
-        echo "brew install ${inst}" >&2
-    fi
+    if ! [ -x "$(command -v ${1})" ]; then
+        inst=${3-$1}
+        echo "${1} cannot be found. Try installing it with:" >&2
+        if [ -x "$(command -v pacman)" ]; then
+            echo "pacman -S ${inst}" >&2
+        fi
+        if [ -x "$(command -v apt-get)" ]; then
+            echo "apt-get install ${inst}" >&2
+        fi
+        if [ -x "$(command -v brew)" ]; then
+            echo "brew install ${inst}" >&2
+        fi
         if [ -x "$(command -v apk)" ]; then
-        echo "apk add ${inst}" >&2
+            echo "apk add ${inst}" >&2
+        fi
+        if [ -z ${2+x} ]; then
+            echo "No installation instructions provided" >&2
+        else
+            echo "Installation instructions can be found at: ${2}"  >&2
+        fi
+        exit 1
     fi
-    if [ -z ${2+x} ]; then
-       echo "No installation instructions provided" >&2
-    else
-        echo "Installation instructions can be found at: ${2}"  >&2
-    fi
-    exit 1
-fi
 }
 
 prompt_install 'curl'
@@ -42,6 +42,8 @@ prompt_install 'tmux'
 prompt_install 'vim'
 prompt_install 'wget'
 prompt_install 'zsh'
+prompt_install 'fzf'
+prompt_install 'php'
 
 
 if [[ -d "$OMYZSH" ]]
@@ -62,7 +64,6 @@ else
 fi
 
 # Vim
-
 if [ -d ~/.vim/bundle/Vundle.vim ]
 then
     echo "Vundle directory exists. Updating..."
@@ -76,7 +77,7 @@ ln -sf ~/.dotfiles/vim/colors ~/.vim/colors
 vim +PluginInstall +qall
 
 # Neovim
-
+ln -sf ~/.dotfiles/nvim ~/.config/nvim
 
 # Tmux
 if [ -d ~/.tmux/plugins/tpm ]
@@ -114,4 +115,3 @@ ln -sf $SCRIPT_DIR/zshrc ~/.zshrc
 
 # Local config
 touch $SCRIPT_DIR/zsh/zlocal.zsh
-

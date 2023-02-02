@@ -1,28 +1,39 @@
-FROM ubuntu:22.04
-ENV DEBIAN_FRONTEND noninteractive
-ENV TZ=Europe/Berlin
+FROM --platform=linux/amd64 archlinux:latest
 
-RUN apt-get update && \
-    apt-get install --no-install-recommends -y \
-    ansible \
-    curl \
-    golang \
-    git \
-    lsb-release \
-    openssh-client \
-    make \
-    software-properties-common \
-    sudo \
-    vim \
-    wget \
-    zsh \
-    && \
-    rm -r /var/lib/apt/lists/*
+ARG UID=501
+ARG USER="guest"
 
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - &&\
-sudo apt-get install -y nodejs
+RUN pacman -Syu --noconfirm && \
+  pacman --noconfirm -S \
+  cmake \
+  curl \
+  fzf \
+  git \
+  go \
+  lsd \
+  make \
+  neovim \
+  nodejs \
+  openssh \
+  php \
+  python \
+  sudo \
+  tmux \
+  vim \
+  wget \
+  yarn \
+  zsh
 
-RUN add-apt-repository ppa:neovim-ppa/stable && \ 
-    apt-get update && \ 
-    apt-get install -y  neovim && \
-    rm -r /var/lib/apt/lists/*
+RUN useradd -rm -d /home/${USER} -s /bin/bash -g root -l -u ${UID} ${USER}
+USER ${USER}
+WORKDIR /home/${USER}
+
+RUN mkdir -p /home/${USER}/.config && \
+  mkdir -p /home/${USER}/.ssh
+
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+COPY --chown=guest:guest . /home/${USER}/.dotfiles
+RUN  /home/${USER}/.dotfiles/install.sh
+
+
+CMD ["zsh"]

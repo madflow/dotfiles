@@ -12,6 +12,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- configure null_ls
 null_ls.setup({
+  root_dir = require("null-ls.utils").root_pattern(".null-ls-root", "Makefile", ".git"),
   -- setup formatters & linters
   sources = {
     --  to disable file types use
@@ -24,11 +25,16 @@ null_ls.setup({
     code_actions.gitrebase,
     diagnostics.phpstan,
     diagnostics.hadolint,
+    diagnostics.proselint,
     diagnostics.eslint_d.with({ -- js/ts linter
       -- only enable eslint if root has .eslintrc.js
       condition = function(utils)
         return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
       end,
+    }),
+    diagnostics.djlint.with({ -- twig linter
+      extra_filetypes = { "twig" },
+      extra_args = { "--profile", "nunchucks" },
     }),
   },
   -- configure format on save

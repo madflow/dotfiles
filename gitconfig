@@ -12,6 +12,7 @@
   co = checkout
   pf = push --force-with-lease
   st = status
+	wip = commit -m \"wip\" -a
 [core]
   autocrlf = input
 	editor = nvim

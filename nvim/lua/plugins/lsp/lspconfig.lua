@@ -53,21 +53,19 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
--- configure html server
 lspconfig["html"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
--- configure typescript server with plugin
 typescript.setup({
   server = {
     capabilities = capabilities,
     on_attach = on_attach,
+    root_dir = lspconfig.util.root_pattern("package.json"),
   },
 })
 
--- configure css server
 lspconfig["cssls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
@@ -88,6 +86,35 @@ lspconfig["gopls"].setup({
   on_attach = on_attach,
 })
 
+lspconfig["prismals"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+lspconfig["tailwindcss"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+lspconfig["dockerls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+lspconfig["astro"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+lspconfig["denols"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  root_dir = lspconfig.util.root_pattern("deno.json"),
+})
+-- lspconfig["eslint"].setup({
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- })
+--
 -- configure lua server (with special settings)
 lspconfig["sumneko_lua"].setup({
   capabilities = capabilities,

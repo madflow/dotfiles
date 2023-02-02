@@ -28,6 +28,10 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
 
+-- Easy insertion of a trailing ; or , from insert mode
+vim.keymap.set("i", ";;", "<Esc>A;<Esc>")
+vim.keymap.set("i", ",,", "<Esc>A,<Esc>")
+
 ----------------------
 -- Plugin Keybinds
 ----------------------
@@ -56,5 +60,5 @@ keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if ne
 -- terminal
 keymap.set("n", "<leader>tt", ":ToggleTerm<CR>")
 
--- bar bar - bufferline
-keymap.set("n", "<C-p>", "<Cmd>BufferPick<CR>")
+--- Bufferline
+keymap.set("n", "<C-p>", "<Cmd>BufferLinePick<CR>")
