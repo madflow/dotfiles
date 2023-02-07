@@ -52,6 +52,7 @@ mason_null_ls.setup({
     "phpstan",
     "psalm",
     "proselint",
+    "gofumpt",
   },
   -- auto-install configured formatters & linters (with null-ls)
   automatic_installation = true,

@@ -126,6 +126,8 @@ return packer.startup(function(use)
   -- debugging
   use("mfussenegger/nvim-dap")
   use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+
+  -- terminal integration
   use({
     "akinsho/toggleterm.nvim",
     tag = "*",
@@ -156,12 +158,13 @@ return packer.startup(function(use)
     end,
   })
 
+  -- Codeium
+  -- use("Exafunction/codeium.vim")
+
   -- Indent guides for Neovim
   use("lukas-reineke/indent-blankline.nvim")
+
   if packer_bootstrap then
     require("packer").sync()
   end
-
-  -- Codeium
-  use("Exafunction/codeium.vim")
 end)

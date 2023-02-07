@@ -62,7 +62,6 @@ typescript.setup({
   server = {
     capabilities = capabilities,
     on_attach = on_attach,
-    root_dir = lspconfig.util.root_pattern("package.json"),
   },
 })
 
@@ -71,15 +70,18 @@ lspconfig["cssls"].setup({
   on_attach = on_attach,
 })
 
--- lspconfig["intelephense"].setup({
+lspconfig["intelephense"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    telemetry = { enable = false },
+  },
+})
+
+-- lspconfig["phpactor"].setup({
 --   capabilities = capabilities,
 --   on_attach = on_attach,
 -- })
-
-lspconfig["phpactor"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
 
 lspconfig["gopls"].setup({
   capabilities = capabilities,
@@ -122,6 +124,7 @@ lspconfig["sumneko_lua"].setup({
   settings = { -- custom settings for lua
     Lua = {
       -- make the language server recognize "vim" global
+      telemetry = { enable = false },
       diagnostics = {
         globals = { "vim" },
       },

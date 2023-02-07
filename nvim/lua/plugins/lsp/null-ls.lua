@@ -20,6 +20,7 @@ null_ls.setup({
     formatting.prettier, -- js/ts formatter
     formatting.stylua, -- lua formatter,
     formatting.gofmt,
+    formatting.gofumpt,
     formatting.phpcsfixer,
     formatting.beautysh,
     code_actions.gitrebase,
