@@ -164,6 +164,28 @@ return packer.startup(function(use)
   -- Indent guides for Neovim
   use("lukas-reineke/indent-blankline.nvim")
 
+  -- vim notify
+  use("rcarriga/nvim-notify")
+
+  -- ui niceness
+  use("stevearc/dressing.nvim")
+  use({
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup({
+        -- add any options here
+      })
+    end,
+    requires = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    },
+  })
+
   if packer_bootstrap then
     require("packer").sync()
   end

@@ -93,10 +93,10 @@ lspconfig["prismals"].setup({
   on_attach = on_attach,
 })
 
-lspconfig["tailwindcss"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
+-- lspconfig["tailwindcss"].setup({
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- })
 
 lspconfig["dockerls"].setup({
   capabilities = capabilities,
