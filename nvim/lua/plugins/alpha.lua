@@ -1,31 +1,13 @@
-local alpha = require("alpha")
-local dashboard = require("alpha.themes.dashboard")
+return {
 
--- Set header
---dashboard.section.header.val = {
---  "                                                     ",
--- "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
--- "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
---"  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
---  "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
---  "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
---  "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
---  "                                                     ",
---}
+  {
+    "goolord/alpha-nvim",
+    opts = function()
+      local dashboard = require("alpha.themes.dashboard")
+      local logo = [[]]
 
-dashboard.section.header.val = require("plugins.alpha.banners").pacman
-
--- Set menu
-dashboard.section.buttons.val = {
-  dashboard.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
-  dashboard.button("f", "  > Find file", "<CMD> Telescope find_files<CR>"),
-  dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
-  dashboard.button("s", "  > Settings", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
-  dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
+      dashboard.section.header.val = vim.split(logo, "\n")
+      return dashboard
+    end,
+  },
 }
-alpha.setup(dashboard.opts)
-
--- Disable folding on alpha buffer
-vim.cmd([[
-    autocmd FileType alpha setlocal nofoldenable
-]])
