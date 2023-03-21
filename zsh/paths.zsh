@@ -1,7 +1,7 @@
 # YARN
 if (( $+commands[yarn] ))
 then
-  export PATH="`yarn global bin`:$PATH"
+    export PATH="`yarn global bin`:$PATH"
 fi
 
 # Local
@@ -14,5 +14,4 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 
 # Go
-export GOPATH="$HOME/.go"
-export PATH="$GOPATH/bin:$PATH" 
+export PATH="$HOME/go/bin:$PATH"
