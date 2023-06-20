@@ -10,7 +10,12 @@ return {
         cssls = {},
         -- denols = false,
         dockerls = {},
-        eslint = {},
+        eslint = {
+          settings = {
+            -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
+            workingDirectory = { mode = "auto" },
+          },
+        },
         golangci_lint_ls = {},
         gopls = {},
         html = {},
@@ -18,39 +23,44 @@ return {
         jsonls = {},
         marksman = {},
         docker_compose_language_service = {},
+        prismals = {},
+        rust_analyzer = {},
+        -- tailwindcss = {},
         tsserver = {},
         vuels = {},
-        yamlls = {},
+        yamlls = {
+          settings = {
+            yaml = {
+              keyOrdering = false,
+              validate = false,
+            },
+            redhat = {
+              telemetry = {
+                enabled = false,
+              },
+            },
+          },
+        },
       },
-    },
-  },
+      setup = {
+        eslint = function()
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            callback = function(event)
+              if not require("lazyvim.plugins.lsp.format").enabled() then
+                -- exit early if autoformat is not enabled
+                return
+              end
 
-  -- tools
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "beautysh",
-        "chrome-debug-adapter",
-        "delve",
-        "djlint",
-        "eslint_d",
-        "firefox-debug-adapter",
-        "gofumpt",
-        "hadolint",
-        "isort",
-        "jq",
-        "js-debug-adapter",
-        "luacheck",
-        "markdownlint",
-        "php-cs-fixer",
-        "php-debug-adapter",
-        "phpstan",
-        "prettierd",
-        -- "psalm",
-        "shellcheck",
-        "shfmt",
-        "stylua",
+              local client = vim.lsp.get_active_clients({ bufnr = event.buf, name = "eslint" })[1]
+              if client then
+                local diag = vim.diagnostic.get(event.buf, { namespace = vim.lsp.diagnostic.get_namespace(client.id) })
+                if #diag > 0 then
+                  vim.cmd("EslintFixAll")
+                end
+              end
+            end,
+          })
+        end,
       },
     },
   },
@@ -80,24 +90,13 @@ return {
           nls.builtins.formatting.phpcsfixer,
           nls.builtins.formatting.prettierd,
           nls.builtins.formatting.shfmt,
+          nls.builtins.diagnostics.sqlfluff.with({
+            extra_args = { "--dialect", "postgres" }, -- change to your dialect
+          }),
           nls.builtins.formatting.stylua,
         },
         root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", ".git"),
       })
     end,
   },
-
-  -- -- lspsaga
-  -- {
-  --   "glepnir/lspsaga.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("lspsaga").setup({})
-  --   end,
-  --   dependencies = {
-  --     { "nvim-tree/nvim-web-devicons" },
-  --     --Please make sure you install markdown and markdown_inline parser
-  --     { "nvim-treesitter/nvim-treesitter" },
-  --   },
-  -- },
 }

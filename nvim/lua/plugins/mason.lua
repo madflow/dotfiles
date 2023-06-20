@@ -1,0 +1,31 @@
+return {
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "beautysh",
+        "chrome-debug-adapter",
+        "delve",
+        "djlint",
+        "eslint_d",
+        "firefox-debug-adapter",
+        "gofumpt",
+        "hadolint",
+        "isort",
+        "jq",
+        "js-debug-adapter",
+        "luacheck",
+        "markdownlint",
+        "php-cs-fixer",
+        "php-debug-adapter",
+        "phpstan",
+        "prettierd",
+        "psalm",
+        "shellcheck",
+        "shfmt",
+        "sqlfluff",
+        "stylua",
+      },
+    },
+  },
+}
