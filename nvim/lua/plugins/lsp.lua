@@ -17,7 +17,45 @@ return {
           },
         },
         golangci_lint_ls = {},
-        gopls = {},
+        gopls = {
+          settings = {
+            gopls = {
+              gofumpt = true,
+              codelenses = {
+                gc_details = false,
+                generate = true,
+                regenerate_cgo = true,
+                run_govulncheck = true,
+                test = true,
+                tidy = true,
+                upgrade_dependency = true,
+                vendor = true,
+              },
+              hints = {
+                assignVariableTypes = true,
+                compositeLiteralFields = true,
+                compositeLiteralTypes = true,
+                constantValues = true,
+                functionTypeParameters = true,
+                parameterNames = true,
+                rangeVariableTypes = true,
+              },
+              analyses = {
+                fieldalignment = true,
+                nilness = true,
+                unusedparams = true,
+                unusedwrite = true,
+                useany = true,
+              },
+              usePlaceholders = true,
+              completeUnimported = true,
+              staticcheck = true,
+              directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+              semanticTokens = true,
+            },
+          },
+        },
+        helm_ls = {},
         html = {},
         intelephense = {},
         jsonls = {},
@@ -43,6 +81,26 @@ return {
         },
       },
       setup = {
+        gopls = function(_, opts)
+          -- workaround for gopls not supporting semanticTokensProvider
+          -- https://github.com/golang/go/issues/54531#issuecomment-1464982242
+          require("lazyvim.util").on_attach(function(client, _)
+            if client.name == "gopls" then
+              if not client.server_capabilities.semanticTokensProvider then
+                local semantic = client.config.capabilities.textDocument.semanticTokens
+                client.server_capabilities.semanticTokensProvider = {
+                  full = true,
+                  legend = {
+                    tokenTypes = semantic.tokenTypes,
+                    tokenModifiers = semantic.tokenModifiers,
+                  },
+                  range = true,
+                }
+              end
+            end
+          end)
+          -- end workaround
+        end,
         eslint = function()
           vim.api.nvim_create_autocmd("BufWritePre", {
             callback = function(event)
@@ -76,23 +134,22 @@ return {
         sources = {
           nls.builtins.code_actions.gitrebase,
           nls.builtins.code_actions.gitsigns,
+          nls.builtins.code_actions.gomodifytags,
+          nls.builtins.code_actions.impl,
           nls.builtins.diagnostics.hadolint,
           nls.builtins.diagnostics.luacheck,
           nls.builtins.diagnostics.markdownlint,
           nls.builtins.diagnostics.phpstan,
-          nls.builtins.diagnostics.proselint,
           nls.builtins.diagnostics.shellcheck,
           nls.builtins.formatting.beautysh,
-          nls.builtins.formatting.eslint_d,
           nls.builtins.formatting.gofmt,
           nls.builtins.formatting.gofumpt,
+          nls.builtins.formatting.gofumpt,
+          nls.builtins.formatting.goimports_reviser,
           nls.builtins.formatting.isort,
           nls.builtins.formatting.phpcsfixer,
           nls.builtins.formatting.prettierd,
           nls.builtins.formatting.shfmt,
-          nls.builtins.diagnostics.sqlfluff.with({
-            extra_args = { "--dialect", "postgres" }, -- change to your dialect
-          }),
           nls.builtins.formatting.stylua,
         },
         root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", ".git"),

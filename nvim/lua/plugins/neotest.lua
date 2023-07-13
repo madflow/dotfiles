@@ -1,9 +1,10 @@
 return {
   { "nvim-neotest/neotest-plenary" },
+  { "nvim-neotest/neotest-go" },
   {
     "nvim-neotest/neotest",
     opts = {
-      adapters = { "neotest-plenary" },
+      adapters = { "neotest-plenary", "neotest-go" },
       status = { virtual_text = true },
       output = { open_on_run = true },
       quickfix = {

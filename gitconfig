@@ -24,3 +24,6 @@
   path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra
+[user]
+	name = florian.reiss
+	email = florian.reiss@qossmic.com
