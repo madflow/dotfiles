@@ -24,6 +24,12 @@
   path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra
-[user]
-	name = florian.reiss
-	email = florian.reiss@qossmic.com
+[core]
+	editor = nvim
+  hooksPath = ~/.dotfiles/git/hooks/
+[branch]
+	autosetuprebase = always
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
