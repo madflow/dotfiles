@@ -15,3 +15,6 @@ export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 
 # Go
 export PATH="$HOME/go/bin:$PATH"
+
+# Ripgrep config
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"

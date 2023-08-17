@@ -3,6 +3,7 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        "actionlint",
         "beautysh",
         "chrome-debug-adapter",
         "delve",
@@ -20,7 +21,7 @@ return {
         "php-cs-fixer",
         "php-debug-adapter",
         "phpstan",
-        "prettierd",
+        "prettier",
         "shellcheck",
         "shfmt",
         "stylua",
