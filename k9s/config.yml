@@ -1,0 +1,56 @@
+k9s:
+  refreshRate: 2
+  maxConnRetry: 5
+  enableMouse: false
+  headless: false
+  logoless: false
+  crumbsless: false
+  readOnly: false
+  noExitOnCtrlC: false
+  noIcons: false
+  skipLatestRevCheck: false
+  logger:
+    tail: 100
+    buffer: 5000
+    sinceSeconds: 300
+    fullScreenLogs: false
+    textWrap: false
+    showTime: false
+  currentContext: review
+  currentCluster: review
+  clusters:
+    review:
+      namespace:
+        active: gs1-honeypot-fix-bump-php
+        lockFavorites: false
+        favorites:
+        - gs1-honeypot-fix-bump-php
+        - abn-update-ubuntu-version
+        - cattle-system
+        - cattle-prometheus
+        - cattle-dashboards
+        - gs1-next-fix-bump-php
+        - all
+        - default
+      view:
+        active: pods
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+        labels: {}
+      portForwardAddress: localhost
+  thresholds:
+    cpu:
+      critical: 90
+      warn: 70
+    memory:
+      critical: 90
+      warn: 70
+  screenDumpDir: /var/folders/cl/0f6ytr194rv61z4w6zkql0fr0000gn/T/k9s-screens-reiss

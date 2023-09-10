@@ -18,3 +18,5 @@ export PATH="$HOME/go/bin:$PATH"
 
 # Ripgrep config
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+export XDG_CONFIG_HOME=$HOME/.config

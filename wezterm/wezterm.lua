@@ -9,7 +9,7 @@ end
 return {
 	audible_bell = "Disabled",
 	bold_brightens_ansi_colors = true,
-	color_scheme = "tokyonight_moon",
+	color_scheme = "nordfox",
 	color_scheme_dirs = { "~/.config/wezterm/themes" },
 	font = font({ family = "Hack", weight = "Bold", italic = false }),
 	allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace",

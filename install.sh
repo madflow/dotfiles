@@ -79,6 +79,9 @@ ln -sf ~/.dotfiles/nvim ~/.config/nvim
 # Wezterm
 ln -sf ~/.dotfiles/wezterm ~/.config/wezterm
 
+# k9s
+ln -sf ~/.dotfiles/k9s ~/.config/k9s
+
 # Tmux
 if [ -d ~/.tmux/plugins/tpm ]; then
 	echo "Tpm directory exists. Updating..."

@@ -6,7 +6,7 @@ return {
       servers = {
         ansiblels = {},
         astro = {},
-        bashls = {},
+        -- bashls = {},
         cssls = {},
         -- denols = false,
         helm_ls = {},
