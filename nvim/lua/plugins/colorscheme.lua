@@ -23,7 +23,9 @@ return {
     build = ":NightfoxCompile",
     opts = {
       palettes = {
-        nordfox = {},
+        nordfox = {
+          comment = "#8299b3",
+        },
       },
     },
   },

@@ -13,12 +13,14 @@ RUN pacman -Syu --noconfirm && \
   lsd \
   make \
   neovim \
+  npm \
   nodejs \
   openssh \
   php \
   python \
   sudo \
   tmux \
+  unzip \
   vim \
   wget \
   yarn \

@@ -27,6 +27,7 @@ return {
         "regex",
         "rust",
         "sql",
+        "svelte",
         "toml",
         "tsx",
         "twig",

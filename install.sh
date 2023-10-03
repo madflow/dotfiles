@@ -44,7 +44,7 @@ prompt_install 'wget'
 prompt_install 'zsh'
 prompt_install 'fzf'
 prompt_install 'php'
-prompt_install 'neovim'
+prompt_install 'nvim'
 
 if [[ -d "$OMYZSH" ]]; then
 	echo "oh my zsh seems to already installed."

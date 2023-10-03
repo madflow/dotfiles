@@ -15,6 +15,8 @@ return {
         marksman = {},
         -- docker_compose_language_service = {},
         prismals = {},
+        svelte = {},
+        tailwindcss = {},
         vuels = {},
       },
     },

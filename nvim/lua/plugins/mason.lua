@@ -25,6 +25,7 @@ return {
         "shellcheck",
         "shfmt",
         "stylua",
+        "tailwindcss-language-server",
         "xmlformatter",
       },
     },
