@@ -29,7 +29,6 @@ return {
 	show_tab_index_in_tab_bar = false,
 	term = "wezterm",
 	use_fancy_tab_bar = true,
-	window_background_opacity = 1.0,
 	send_composed_key_when_left_alt_is_pressed = true,
 	send_composed_key_when_right_alt_is_pressed = false,
 	window_frame = {

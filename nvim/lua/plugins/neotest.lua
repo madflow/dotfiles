@@ -4,7 +4,7 @@ return {
   {
     "nvim-neotest/neotest",
     opts = {
-      adapters = { "neotest-plenary", "neotest-go" },
+      adapters = { "neotest-plenary", "neotest-go", "neotest-rust" },
       status = { virtual_text = true },
       output = { open_on_run = true },
       quickfix = {

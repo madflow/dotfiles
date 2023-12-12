@@ -47,7 +47,7 @@ ZSH_CUSTOM=~/.dotfiles/zsh
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(ssh-agent docker httpie git git-extras macos nvm yarn)
+plugins=(ssh-agent docker httpie git git-extras macos nvm yarn pnpm)
 
 # User configuration
 
@@ -62,7 +62,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
 else
-    export EDITOR='vim'
+    export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -97,10 +97,3 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Wasmer
-export WASMER_DIR="/Users/reiss/.wasmer"
-[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
-
-export WASMTIME_HOME="$HOME/.wasmtime"
-
-export PATH="$WASMTIME_HOME/bin:$PATH"

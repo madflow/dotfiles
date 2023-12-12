@@ -1,0 +1,3 @@
+return {
+  { "Furkanzmc/zettelkasten.nvim" },
+}

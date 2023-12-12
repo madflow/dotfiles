@@ -3,6 +3,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
+        "astro",
         "bash",
         "css",
         "dockerfile",
@@ -30,7 +31,6 @@ return {
         "svelte",
         "toml",
         "tsx",
-        "twig",
         "typescript",
         "vim",
         "vue",
