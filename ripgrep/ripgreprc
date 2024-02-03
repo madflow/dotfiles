@@ -7,6 +7,9 @@
 web:*.{html,css,js,ts,scss,tsx,jsx}*
 
 --type-add
+styles:*.{css,scss}*
+
+--type-add
 yaml:*.{yml,yaml,toml}*
 
 # Search hidden files / directories (e.g. dotfiles) by default

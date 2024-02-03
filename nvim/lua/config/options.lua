@@ -3,5 +3,7 @@
 -- Add any additional options here
 vim.wo.conceallevel = 0
 vim.opt.swapfile = false
-vim.o.timeout = true
-vim.o.timeoutlen = 500
+-- vim.o.timeout = true
+-- vim.o.timeoutlen = 500
+--r
+vim.filetype.add({ extension = { templ = "templ" } })
