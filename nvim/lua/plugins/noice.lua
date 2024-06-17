@@ -10,6 +10,7 @@ return {
           opts = {
             size = {
               height = 10,
+              width = 60,
             },
           },
         },

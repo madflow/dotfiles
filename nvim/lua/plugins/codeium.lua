@@ -1,6 +1,7 @@
 return {
   "Exafunction/codeium.vim",
   lazy = false,
+  version = "1.8.37",
   config = function()
     vim.keymap.set("i", "<C-g>", function()
       return vim.fn["codeium#Accept"]()
@@ -14,6 +15,10 @@ return {
     vim.keymap.set("i", "<c-x>", function()
       return vim.fn["codeium#Clear"]()
     end, { expr = true })
+  end,
+  cond = function()
+    is_private = vim.loop.fs_stat(vim.loop.cwd() .. "/.private")
+    return not is_private
   end,
 }
 --

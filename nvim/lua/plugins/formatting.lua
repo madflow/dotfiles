@@ -14,6 +14,7 @@ return {
         ["json"] = { "prettier" },
         ["jsonc"] = { "prettier" },
         ["less"] = { "prettier" },
+        ["lua"] = { "stylua" },
         ["markdown"] = { "prettier" },
         ["markdown.mdx"] = { "prettier" },
         ["php"] = { "php_cs_fixer" },

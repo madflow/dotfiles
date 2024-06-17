@@ -23,6 +23,7 @@ return {
         "php-debug-adapter",
         "phpstan",
         "prettier",
+        "psalm",
         "selene",
         "shellcheck",
         "shfmt",

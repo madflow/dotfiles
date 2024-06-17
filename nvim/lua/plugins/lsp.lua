@@ -6,14 +6,36 @@ return {
       servers = {
         ansiblels = {},
         astro = {},
+        biome = {},
         -- bashls = {},
         cssls = {},
         -- denols = false,
         helm_ls = {},
         html = {},
-        intelephense = {},
+        intelephense = {
+          settings = {
+            intelephense = {
+              telemetry = {
+                enable = true,
+              },
+            },
+          },
+        },
         -- docker_compose_language_service = {},
         marksman = {},
+        -- phpactor = {
+        --   filetypes = { "php" },
+        --   settings = {
+        --     phpactor = {
+        --       language_server_phpstan = {
+        --         enabled = false,
+        --       },
+        --       language_server_psalm = {
+        --         enabled = false,
+        --       },
+        --     },
+        --   },
+        -- },
         prismals = {},
         svelte = {},
         tailwindcss = {},
