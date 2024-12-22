@@ -11,3 +11,4 @@ vim.filetype.add({ extension = { templ = "templ" } })
 -- Foldingvim
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.g.snacks_animate = false

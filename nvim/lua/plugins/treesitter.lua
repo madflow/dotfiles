@@ -29,6 +29,8 @@ return {
         "rust",
         "sql",
         "svelte",
+        "swift",
+        "toml",
         "templ",
         "toml",
         "tsx",

@@ -47,7 +47,7 @@ ZSH_CUSTOM=~/.dotfiles/zsh
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(ssh-agent docker httpie git git-extras macos nvm yarn pnpm)
+plugins=(ssh-agent docker httpie git git-extras macos nvm yarn z)
 
 # User configuration
 

@@ -10,6 +10,7 @@ return {
         -- bashls = {},
         cssls = {},
         -- denols = false,
+        golangci_lint_ls = {},
         helm_ls = {},
         html = {},
         intelephense = {
@@ -37,9 +38,19 @@ return {
         --   },
         -- },
         prismals = {},
+        sourcekit = {},
         svelte = {},
-        tailwindcss = {},
+        -- tailwindcss = {},
         templ = {},
+        vtsls = {
+          settings = {
+            typescript = {
+              inlayHints = {
+                { enabled = false },
+              },
+            },
+          },
+        },
         vuels = {},
       },
     },

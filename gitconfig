@@ -35,4 +35,6 @@
 	autoStash = true
 [user]
 	name = Florian Reiss
-	email = florian.reiss@qossmic.com
+	email = florian.reiss@open.de
+[rerere]
+	enabled = 1

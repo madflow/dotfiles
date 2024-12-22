@@ -4,7 +4,7 @@
 
 # Add my 'web' type.
 --type-add
-web:*.{html,css,js,ts,scss,tsx,jsx}*
+web:*.{astro,html,css,js,ts,scss,tsx,jsx}*
 
 --type-add
 styles:*.{css,scss}*

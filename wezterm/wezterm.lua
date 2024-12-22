@@ -5,7 +5,6 @@ local mux = wezterm.mux
 wezterm.on("gui-startup", function(cmd)
 	local tab, pane, window = mux.spawn_window(cmd or {})
 	window:gui_window():maximize()
-	-- window:gui_window():toggle_fullscreen()
 end)
 
 local function font(opts)
@@ -16,6 +15,7 @@ local function font(opts)
 end
 
 return {
+	adjust_window_size_when_changing_font_size = false,
 	audible_bell = "Disabled",
 	bold_brightens_ansi_colors = true,
 	color_scheme = "nordfox",
@@ -23,15 +23,21 @@ return {
 	allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace",
 	font = font({ family = "JetBrains Mono", weight = "Bold", italic = false }),
 	font_size = 16,
+	line_height = 1.1,
 	hide_tab_bar_if_only_one_tab = true,
 	native_macos_fullscreen_mode = true,
 	scrollback_lines = 20000,
 	show_tab_index_in_tab_bar = false,
 	term = "wezterm",
+	use_dead_keys = false,
 	use_fancy_tab_bar = true,
 	send_composed_key_when_left_alt_is_pressed = true,
 	send_composed_key_when_right_alt_is_pressed = false,
 	window_background_opacity = 1,
+	inactive_pane_hsb = {
+		saturation = 0.9,
+		brightness = 0.9,
+	},
 	window_frame = {
 		-- The font used in the tab bar.
 		-- Roboto Bold is the default; this font is bundled
