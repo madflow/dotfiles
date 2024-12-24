@@ -46,8 +46,10 @@ ZSH_CUSTOM=~/.dotfiles/zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-
-plugins=(ssh-agent docker httpie git git-extras macos nvm yarn z)
+#
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+plugins=(ssh-agent docker httpie git git-extras macos zsh-nvm yarn)
 
 # User configuration
 
@@ -90,10 +92,5 @@ setopt interactivecomments
 # Zsh has a spelling corrector
 setopt CORRECT
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
+# fzf yo
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-

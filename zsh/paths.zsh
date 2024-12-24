@@ -23,3 +23,6 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export PATH=$HOME/flutter/bin:$PATH
 
 export XDG_CONFIG_HOME=$HOME/.config
+
+# Dotfiles bin
+export PATH=$HOME/.dotfiles/bin:$PATH
